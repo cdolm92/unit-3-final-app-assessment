@@ -7,6 +7,7 @@
 //
 
 #import "C4QCatFactsTableViewController.h"
+#import "CatFactsTableViewCell.h"
 #import <AFNetworking/AFNetworking.h>
 
 #define CAT_API_URL @"http://catfacts-api.appspot.com/api/facts?number=100"
@@ -19,35 +20,46 @@
 
 @implementation C4QCatFactsTableViewController
 
+
+
+
+-(void)fetchCatData {
+    
+    NSSet *contentTypes = [NSSet setWithObjects: @"text/html", @"text/plain", @"audio/wav", @"application/javascript", nil];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = contentTypes;
+    
+    [manager GET:@"http://catfacts-api.appspot.com/api/facts?number=100"
+      parameters:nil
+        progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             
+             self.catFacts = [[NSMutableArray alloc] init];
+             
+             
+             self.catFacts = [responseObject objectForKey:@"facts"];
+             
+             NSLog(@"%@", self.catFacts);
+             
+             
+         }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             
+             NSLog(@"%@", error.userInfo);
+         }];
+    
+
+
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self fetchCatData];
     
     
-    NSSet *contentTypes = [NSSet setWithObjects: @"text/html", @"text/plain", @"audio/wav", @"application/javascript", nil];
-     
-     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer.acceptableContentTypes = contentTypes;
-    
-     [manager GET:@"http://catfacts-api.appspot.com/api/facts?number=100"
-     parameters:nil
-     progress:nil
-     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-         
-      self.catFacts = [[NSMutableArray alloc] init];
-
-     
-     self.catFacts = [responseObject objectForKey:@"facts"];
-    
-     NSLog(@"%@", self.catFacts[0]);
-     
-     
-     }
-     failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-     
-     NSLog(@"%@", error.userInfo);
-     }];
-     
 }
 
 
@@ -55,22 +67,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.catFacts.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CatFactIdentifier" forIndexPath:indexPath];
+    CatFactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CatFactIdentifier" forIndexPath:indexPath];
     
     return cell;
 }
-*/
+
 
 
 @end
