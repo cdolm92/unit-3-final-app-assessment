@@ -7,10 +7,13 @@
 //
 
 #import "C4QCatFactsTableViewController.h"
+#import <AFNetworking/AFNetworking.h>
 
 #define CAT_API_URL @"http://catfacts-api.appspot.com/api/facts?number=100"
 
 @interface C4QCatFactsTableViewController ()
+
+@property (nonatomic) NSMutableArray *catFacts;
 
 @end
 
@@ -19,6 +22,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    NSSet *contentTypes = [NSSet setWithObjects: @"text/html", @"text/plain", @"audio/wav", @"application/javascript", nil];
+     
+     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = contentTypes;
+    
+     [manager GET:@"http://catfacts-api.appspot.com/api/facts?number=100"
+     parameters:nil
+     progress:nil
+     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+         
+      self.catFacts = [[NSMutableArray alloc] init];
+
+     
+     self.catFacts = [responseObject objectForKey:@"facts"];
+    
+     NSLog(@"%@", self.catFacts[0]);
+     
+     
+     }
+     failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+     
+     NSLog(@"%@", error.userInfo);
+     }];
+     
 }
 
 

@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ColorSettingDelegate <NSObject>
+
+-(void)userDidSetBackgroundColor:(UIColor *)background;
+
+
+@end
+
 @interface C4QColorPickerViewController : UIViewController
+
+@property (weak, nonatomic) id<ColorSettingDelegate> delegate;
 
 @end

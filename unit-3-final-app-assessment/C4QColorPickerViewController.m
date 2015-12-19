@@ -7,6 +7,7 @@
 //
 
 #import "C4QColorPickerViewController.h"
+#import <UIKit/UIKit.h>
 
 @interface C4QColorPickerViewController ()
 
@@ -24,6 +25,18 @@
     self.blueButton.backgroundColor = [UIColor blueColor];
     self.greenButton.backgroundColor = [UIColor greenColor];
     self.redButton.backgroundColor = [UIColor redColor];
+}
+
+- (IBAction)redButtonTapped:(id)sender {
+    [self.delegate userDidSetBackgroundColor:[UIColor redColor]];
+}
+
+- (IBAction)greenButtonTapped:(id)sender {
+    [self.delegate userDidSetBackgroundColor:[UIColor greenColor]];
+}
+
+- (IBAction)blueButtonTapped:(id)sender {
+    [self.delegate userDidSetBackgroundColor:[UIColor blueColor]];
 }
 
 @end
