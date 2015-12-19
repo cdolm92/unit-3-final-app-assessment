@@ -76,7 +76,9 @@
 
     
     
-    NSLog(@"END %ld", self.catFacts.count);
+ 
+    
+    
     
     
 }
@@ -95,11 +97,26 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CatFactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CatFactIdentifier" forIndexPath:indexPath];
     
     cell.catFact.text = [self.catFacts objectAtIndex:indexPath.row];
+    cell.catFact.numberOfLines = 0;
+    cell.catFact.lineBreakMode = NSLineBreakByTruncatingTail;
+    
+    
+    
     
   
     

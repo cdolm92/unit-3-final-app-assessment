@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -151,33 +152,54 @@
             </objects>
             <point key="canvasLocation" x="1356" y="-14"/>
         </scene>
-        <!--Cat Facts-->
+        <!--Title-->
         <scene sceneID="8Uu-p4-NMC">
             <objects>
                 <tableViewController id="Q41-6z-oZL" customClass="C4QCatFactsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rcm-yl-NuT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rcm-yl-NuT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CatFactIdentifier" rowHeight="108" id="iTt-7k-eCT" customClass="CatFactsTableViewCell">
-                                <rect key="frame" x="0.0" y="92" width="600" height="108"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CatFactIdentifier" rowHeight="62" id="iTt-7k-eCT" customClass="CatFactsTableViewCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iTt-7k-eCT" id="sRj-lp-QH7">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="107.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="61.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LlC-uR-0P8">
-                                            <rect key="frame" x="26" y="10" width="42" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cat Fact" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LlC-uR-0P8">
+                                            <rect key="frame" x="20" y="20" width="343" height="20.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="343" id="qjz-2A-EGT"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8YG-Bs-Mzm">
+                                            <rect key="frame" x="547" y="16" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="pWx-2F-qEq"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                            <state key="normal" title="+">
+                                                <color key="titleColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="LlC-uR-0P8" firstAttribute="leading" secondItem="sRj-lp-QH7" secondAttribute="leading" constant="26" id="3Wl-gM-AuF"/>
-                                        <constraint firstItem="LlC-uR-0P8" firstAttribute="top" secondItem="sRj-lp-QH7" secondAttribute="top" constant="10" id="arj-uu-ynr"/>
+                                        <constraint firstItem="LlC-uR-0P8" firstAttribute="leading" secondItem="sRj-lp-QH7" secondAttribute="leadingMargin" constant="12" id="7F9-bj-SjX"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="8YG-Bs-Mzm" secondAttribute="trailing" constant="15" id="eYg-Pq-Gsn"/>
+                                        <constraint firstItem="8YG-Bs-Mzm" firstAttribute="baseline" secondItem="LlC-uR-0P8" secondAttribute="baseline" constant="9.5" id="rfr-aI-bJ9"/>
+                                        <constraint firstItem="8YG-Bs-Mzm" firstAttribute="centerY" secondItem="sRj-lp-QH7" secondAttribute="centerY" id="t00-fO-ygG"/>
+                                        <constraint firstItem="LlC-uR-0P8" firstAttribute="top" secondItem="sRj-lp-QH7" secondAttribute="topMargin" constant="12" id="ucQ-Ds-pyk"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="rfr-aI-bJ9"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="catFact" destination="LlC-uR-0P8" id="77u-w7-ifi"/>
@@ -189,7 +211,9 @@
                             <outlet property="delegate" destination="Q41-6z-oZL" id="DhZ-Vp-7N4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Cat Facts" id="Wcl-Wy-q65"/>
+                    <navigationItem key="navigationItem" title="Title" id="yDU-T0-oM8">
+                        <barButtonItem key="rightBarButtonItem" title="Saved" id="sF6-LW-RHr"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yux-EA-lvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
