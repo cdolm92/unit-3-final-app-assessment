@@ -8,6 +8,7 @@
 
 #import "C4QCatFactsTableViewController.h"
 #import "CatFactsTableViewCell.h"
+#import "CatFactData.h"
 #import <AFNetworking/AFNetworking.h>
 
 #define CAT_API_URL @"http://catfacts-api.appspot.com/api/facts?number=100"
@@ -25,6 +26,18 @@
 
 -(void)fetchCatData {
     
+  
+    
+
+
+
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    
     NSSet *contentTypes = [NSSet setWithObjects: @"text/html", @"text/plain", @"audio/wav", @"application/javascript", nil];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -35,29 +48,35 @@
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              
+             NSArray *results = responseObject[@"facts"];
+             
+             // reset my array
              self.catFacts = [[NSMutableArray alloc] init];
              
              
-             self.catFacts = [responseObject objectForKey:@"facts"];
+             for (NSString *result in results) {
+                 
+                [self.catFacts addObject: result];
+             }
              
-             NSLog(@"%@", self.catFacts);
+             [self.tableView reloadData];
              
              
          }
+     
+     
+     
          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             
              
              NSLog(@"%@", error.userInfo);
          }];
     
+    
 
-
-
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self fetchCatData];
+    
+    
+    NSLog(@"END %ld", self.catFacts.count);
     
     
 }
@@ -80,8 +99,14 @@
 {
     CatFactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CatFactIdentifier" forIndexPath:indexPath];
     
+    cell.catFact.text = [self.catFacts objectAtIndex:indexPath.row];
+    
+  
+    
     return cell;
 }
+
+
 
 
 
