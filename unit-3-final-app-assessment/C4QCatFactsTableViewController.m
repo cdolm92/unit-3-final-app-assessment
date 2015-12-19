@@ -72,14 +72,8 @@
              NSLog(@"%@", error.userInfo);
          }];
     
-    
-
-    
-    
- 
-    
-    
-    
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 200.0;
     
 }
 
@@ -91,20 +85,11 @@
     return 1;
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.catFacts.count;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -112,16 +97,26 @@
     CatFactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CatFactIdentifier" forIndexPath:indexPath];
     
     cell.catFact.text = [self.catFacts objectAtIndex:indexPath.row];
-    cell.catFact.numberOfLines = 0;
-    cell.catFact.lineBreakMode = NSLineBreakByTruncatingTail;
+    
+   
+    [cell.catFact setLineBreakMode:NSLineBreakByWordWrapping];
+    [cell.catFact minimumScaleFactor];
+    [cell.catFact setNumberOfLines:0];
+    [cell.catFact setFont:[UIFont systemFontOfSize:14]];
+    [cell.catFact setTag:1];
+    
+    [[cell contentView] addSubview:cell.catFact];
     
     
-    
-    
-  
     
     return cell;
 }
+
+
+
+
+
+
 
 
 

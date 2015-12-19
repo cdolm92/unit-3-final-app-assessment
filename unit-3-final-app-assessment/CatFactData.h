@@ -12,6 +12,6 @@
 
 @property (nonatomic) NSString *catInfo;
 
-- (instancetype)initWithJSON:(NSDictionary *)json;
+
 
 @end

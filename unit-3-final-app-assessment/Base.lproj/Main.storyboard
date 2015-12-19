@@ -219,5 +219,23 @@
             </objects>
             <point key="canvasLocation" x="1356" y="677"/>
         </scene>
+        <!--Cat Facts Detail View Controller-->
+        <scene sceneID="VUb-ws-gZK">
+            <objects>
+                <viewController id="T3i-4U-1yu" customClass="C4QCatFactsDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OiY-Y2-9c1"/>
+                        <viewControllerLayoutGuide type="bottom" id="pKb-dT-om5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Wj-7d-ctT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AAc-UQ-2ve" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2028" y="677"/>
+        </scene>
     </scenes>
 </document>
