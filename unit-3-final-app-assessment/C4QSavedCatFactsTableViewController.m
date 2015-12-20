@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.facts = self.bunchOfCatFacts;
+    self.facts = [[NSUserDefaults standardUserDefaults ]objectForKey:@"Saved-Fact"];
     NSLog(@"%@", self.facts);
    
 }

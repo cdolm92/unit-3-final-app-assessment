@@ -99,7 +99,6 @@
     
     
     
-    cell.factsOnCats = self.passFact;
     
     
     [cell.catFact setLineBreakMode:NSLineBreakByWordWrapping];
@@ -134,8 +133,13 @@
     if([[segue identifier] isEqualToString:@"showSavedFacts"]) {
         
         
+        
+        
+        
        C4QSavedCatFactsTableViewController *SavedTVC = segue.destinationViewController;
-        SavedTVC.bunchOfCatFacts = self.passFact;
+        SavedTVC.bunchOfCatFacts = self.selectedFact;
+        
+        NSLog(@"Fact: %@", self.selectedFact);
         
 
         

@@ -8,6 +8,7 @@
 
 #import "CatFactsTableViewCell.h"
 #import "C4QSavedCatFactsTableViewController.h"
+#import "C4QCatFactsTableViewController.h"
 
 @implementation CatFactsTableViewCell
 
@@ -59,6 +60,20 @@
   
 }
 
+//
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    
+//        
+//        
+//        
+//        C4QCatFactsTableViewController *passArray = segue.destinationViewController;
+//        passArray.selectedFact= self.factsOnCats;
+//    NSLog(@"FACTS2 %@", passArray.selectedFact);
+//    
+//        
+//    }
+//
+//
 
 
 
