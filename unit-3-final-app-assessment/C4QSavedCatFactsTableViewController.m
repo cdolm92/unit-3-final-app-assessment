@@ -38,6 +38,15 @@
      
     }
 
+
+# pragma mark - Cell Setup
+
+- (void)setUpCell:(SavedCatFactsTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    cell.savedCatFactLabel.text = [self.facts objectAtIndex:indexPath.row];
+}
+
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -54,8 +63,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SavedCatFactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"savedFacts" forIndexPath:indexPath];
     
+    
+    
+    
+    
     NSString *savedFact = [self objectForIndexPath:indexPath];
     cell.savedCatFactLabel.text = savedFact;
+    cell.savedCatFactLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    cell.savedCatFactLabel.numberOfLines = 0;
+    
     
     return cell;
 }
@@ -67,6 +83,29 @@
     return self.facts[indexPath.row];
     
 }
+
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    static SavedCatFactsTableViewCell *cell = nil;
+//    static dispatch_once_t onceToken;
+//    
+//    dispatch_once(&onceToken, ^{
+//        cell = [self.tableView dequeueReusableCellWithIdentifier:@"CatFactIdentifier"];
+//    });
+//    
+//    [self setUpCell:cell atIndexPath:indexPath];
+//    
+//    return [self calculateHeightForConfiguredSizingCell:cell];
+//}
+//
+//- (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
+//    [sizingCell layoutIfNeeded];
+//
+//    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+//    return size.height;
+//}
+//
+
 
 
 
