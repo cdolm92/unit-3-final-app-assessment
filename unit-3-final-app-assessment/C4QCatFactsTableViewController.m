@@ -7,6 +7,7 @@
 //
 
 #import "C4QCatFactsTableViewController.h"
+#import "C4QCatFactsDetailViewController.h"
 #import "CatFactsTableViewCell.h"
 #import "CatFactData.h"
 #import <AFNetworking/AFNetworking.h>
@@ -110,6 +111,24 @@
     
     
     return cell;
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"preparing...");
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    
+    NSString *theCatFact = [self objectForIndexPath:indexPath];
+    
+    C4QCatFactsDetailViewController *detailViewController = segue.destinationViewController;
+    detailViewController.factOnCat= theCatFact;
+}
+
+- (NSString *)objectForIndexPath:(NSIndexPath *)indexPath {
+    
+        return self.catFacts[indexPath.row];
+   
 }
 
 

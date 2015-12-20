@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *giphyImage;
 @property (nonatomic) NSMutableArray *imageUrls;
+@property (weak, nonatomic) IBOutlet UILabel *catFactHereLabel;
 
 @end
 
@@ -72,7 +73,7 @@
              NSLog(@"%@", error.userInfo);
          }];
     
-
+    self.catFactHereLabel.text = self.factOnCat;
     
     
     
