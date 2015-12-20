@@ -52,11 +52,17 @@
     // add cat fact into the array
     // save the array back into NSUserDefaults
     
-    NSLog(@"%@", self.factsOnCats);
+//    NSLog(@"%@", self.factsOnCats);
+//    
+//    NSLog(@"%lu", (unsigned long)self.factsOnCats);
     
-    NSLog(@"%lu", (unsigned long)self.factsOnCats);
-
     
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Saved!"
+                                                    message:@"🐱🐯New cat fact saved!🦁🐱"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
   
 }
 
