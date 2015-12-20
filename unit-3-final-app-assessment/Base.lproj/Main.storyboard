@@ -232,25 +232,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2O6-9E-DzF">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2O6-9E-DzF">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2O6-9E-DzF" firstAttribute="centerY" secondItem="8Wj-7d-ctT" secondAttribute="centerY" id="D60-ik-Gi5"/>
-                            <constraint firstItem="2O6-9E-DzF" firstAttribute="top" secondItem="OiY-Y2-9c1" secondAttribute="bottom" constant="-20" id="Mg6-sE-9WO"/>
-                            <constraint firstItem="2O6-9E-DzF" firstAttribute="leading" secondItem="8Wj-7d-ctT" secondAttribute="leading" id="eTS-wM-tIp"/>
-                            <constraint firstItem="pKb-dT-om5" firstAttribute="top" secondItem="2O6-9E-DzF" secondAttribute="bottom" id="hYP-PV-mp7"/>
-                            <constraint firstItem="2O6-9E-DzF" firstAttribute="centerX" secondItem="8Wj-7d-ctT" secondAttribute="centerX" id="qBY-hx-8xf"/>
-                            <constraint firstAttribute="trailing" secondItem="2O6-9E-DzF" secondAttribute="trailing" id="ynL-Vc-b39"/>
+                            <constraint firstItem="2O6-9E-DzF" firstAttribute="top" secondItem="8Wj-7d-ctT" secondAttribute="topMargin" constant="64" id="9rW-Ff-hOa"/>
+                            <constraint firstItem="pKb-dT-om5" firstAttribute="top" secondItem="2O6-9E-DzF" secondAttribute="bottom" id="Dvq-rW-J88"/>
+                            <constraint firstAttribute="trailing" secondItem="2O6-9E-DzF" secondAttribute="trailing" id="VhQ-J3-d0a"/>
+                            <constraint firstItem="2O6-9E-DzF" firstAttribute="leading" secondItem="8Wj-7d-ctT" secondAttribute="leading" id="qDW-ac-bt0"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="D60-ik-Gi5"/>
-                                <exclude reference="qBY-hx-8xf"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="giphyImage" destination="2O6-9E-DzF" id="btv-Od-jGb"/>
