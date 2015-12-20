@@ -152,7 +152,7 @@
             </objects>
             <point key="canvasLocation" x="1356" y="-14"/>
         </scene>
-        <!--Title-->
+        <!--Cat Facts-->
         <scene sceneID="8Uu-p4-NMC">
             <objects>
                 <tableViewController id="Q41-6z-oZL" customClass="C4QCatFactsTableViewController" sceneMemberID="viewController">
@@ -216,7 +216,7 @@
                             <outlet property="delegate" destination="Q41-6z-oZL" id="DhZ-Vp-7N4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="yDU-T0-oM8">
+                    <navigationItem key="navigationItem" title="Cat Facts" id="yDU-T0-oM8">
                         <barButtonItem key="rightBarButtonItem" title="Saved" id="sF6-LW-RHr">
                             <connections>
                                 <segue destination="uxE-yJ-esz" kind="show" identifier="showSavedFacts" id="yj9-0I-Sy6"/>
@@ -228,7 +228,7 @@
             </objects>
             <point key="canvasLocation" x="1356" y="677"/>
         </scene>
-        <!--Title-->
+        <!--Saved Cat Facts-->
         <scene sceneID="RSP-a9-SwO">
             <objects>
                 <tableViewController id="uxE-yJ-esz" customClass="C4QSavedCatFactsTableViewController" sceneMemberID="viewController">
@@ -267,7 +267,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="ySY-Bj-g6M">
+                    <navigationItem key="navigationItem" title="Saved Cat Facts" id="ySY-Bj-g6M">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="mT4-2l-LFu">
                             <connections>
                                 <action selector="doneTapped:" destination="uxE-yJ-esz" id="dlm-6y-Avc"/>
