@@ -169,19 +169,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cat Fact" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LlC-uR-0P8">
-                                            <rect key="frame" x="20" y="20" width="369" height="66.5"/>
+                                            <rect key="frame" x="20" y="20" width="329" height="66.5"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="369" id="vrz-kf-iHb"/>
+                                                <constraint firstAttribute="width" constant="329" id="vrz-kf-iHb"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8YG-Bs-Mzm">
-                                            <rect key="frame" x="547" y="32" width="30" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="pWx-2F-qEq"/>
-                                            </constraints>
+                                            <rect key="frame" x="547" y="17" width="30" height="61"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="41"/>
                                             <state key="normal" title="+">
                                                 <color key="titleColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -193,17 +190,11 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="LlC-uR-0P8" firstAttribute="leading" secondItem="sRj-lp-QH7" secondAttribute="leadingMargin" constant="12" id="7F9-bj-SjX"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="8YG-Bs-Mzm" secondAttribute="trailing" constant="15" id="eYg-Pq-Gsn"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="8YG-Bs-Mzm" secondAttribute="trailing" constant="15" id="lcc-UY-FNp"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="LlC-uR-0P8" secondAttribute="bottom" id="pRl-FH-zsc"/>
-                                        <constraint firstItem="8YG-Bs-Mzm" firstAttribute="baseline" secondItem="LlC-uR-0P8" secondAttribute="baseline" constant="9.5" id="rfr-aI-bJ9"/>
-                                        <constraint firstItem="8YG-Bs-Mzm" firstAttribute="centerY" secondItem="sRj-lp-QH7" secondAttribute="centerY" id="t00-fO-ygG"/>
                                         <constraint firstItem="LlC-uR-0P8" firstAttribute="top" secondItem="sRj-lp-QH7" secondAttribute="topMargin" constant="12" id="ucQ-Ds-pyk"/>
+                                        <constraint firstItem="8YG-Bs-Mzm" firstAttribute="centerY" secondItem="sRj-lp-QH7" secondAttribute="centerY" id="xXj-vz-9t6"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="rfr-aI-bJ9"/>
-                                        </mask>
-                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="catFact" destination="LlC-uR-0P8" id="77u-w7-ifi"/>
