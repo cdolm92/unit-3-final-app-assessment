@@ -67,10 +67,17 @@
              NSLog(@"%@", error.userInfo);
          }];
     
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 200.0;
     
 }
+
+
+# pragma mark - Cell Setup
+
+- (void)setUpCell:(CatFactsTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    cell.catFact.text = [self.catFacts objectAtIndex:indexPath.row];
+}
+
+
 
 
 #pragma mark - Table view data source
@@ -160,6 +167,29 @@
     return self.catFacts[indexPath.row];
     
 }
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static CatFactsTableViewCell *cell = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"CatFactIdentifier"];
+    });
+    
+    [self setUpCell:cell atIndexPath:indexPath];
+    
+    return [self calculateHeightForConfiguredSizingCell:cell];
+}
+
+- (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
+    [sizingCell layoutIfNeeded];
+    
+    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height;
+}
+
+
 
 
 
