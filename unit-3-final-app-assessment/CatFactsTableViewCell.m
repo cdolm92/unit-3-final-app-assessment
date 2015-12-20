@@ -19,5 +19,28 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)saveTheCatFact:(id)sender {
+    
+    self.factsOnCats = [[NSMutableArray alloc]init];
+    
+    NSString *catFacts = self.catFact.text;
+    
+    [self.factsOnCats addObject:catFacts];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:self.factsOnCats forKey:@"Saved-Fact"];
+    
+    NSLog(@"%@", self.factsOnCats);
+    
+    NSLog(@"%lu", (unsigned long)self.factsOnCats.count);
+    
+}
+
+
+
+
+
+
 
 @end

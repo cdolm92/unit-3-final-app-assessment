@@ -10,4 +10,7 @@
 
 @interface C4QSavedCatFactsTableViewController : UITableViewController
 
+@property (nonatomic) NSString *savedFactOnCat;
+@property (nonatomic) NSMutableArray *bunchOfCatFacts;
+
 @end

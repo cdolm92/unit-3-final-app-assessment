@@ -8,6 +8,7 @@
 
 #import "C4QCatFactsTableViewController.h"
 #import "C4QCatFactsDetailViewController.h"
+#import "C4QSavedCatFactsTableViewController.h"
 #import "CatFactsTableViewCell.h"
 #import "CatFactData.h"
 #import <AFNetworking/AFNetworking.h>
@@ -25,14 +26,6 @@
 
 
 
--(void)fetchCatData {
-    
-  
-    
-
-
-
-}
 
 - (void)viewDidLoad
 {
@@ -93,13 +86,16 @@
 }
 
 
+
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CatFactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CatFactIdentifier" forIndexPath:indexPath];
     
     cell.catFact.text = [self.catFacts objectAtIndex:indexPath.row];
     
-   
+    
     [cell.catFact setLineBreakMode:NSLineBreakByWordWrapping];
     [cell.catFact minimumScaleFactor];
     [cell.catFact setNumberOfLines:0];
@@ -110,49 +106,63 @@
     
     
     
+    
+    
     return cell;
 }
 
 
+
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showCatFactDetail"]) {
-    
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    
-    NSString *theCatFact = [self objectForIndexPath:indexPath];
         
-         NSLog(@"%@", theCatFact);
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
+        NSString *theCatFact = [self objectForIndexPath:indexPath];
         
-    
-    C4QCatFactsDetailViewController *detailViewController = segue.destinationViewController;
-    detailViewController.factOnCat= theCatFact;
+        C4QCatFactsDetailViewController *detailViewController = segue.destinationViewController;
+        detailViewController.factOnCat= theCatFact;
+        
+    } else ([[segue identifier] isEqualToString:@"showSavedFacts"]); {
+        
+        C4QSavedCatFactsTableViewController *SavedTVC = segue.destinationViewController;
+        SavedTVC.bunchOfCatFacts = self.selectedFact;
         
     }
+    
+    
+    
 }
 
 
-- (IBAction)saveCatFactTapped:(id)sender {
-    
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    
-    NSString *theCatFact = [self objectForIndexPath:indexPath];
-    
-    
-   
-    NSUserDefaults *savedFacts = [NSUserDefaults standardUserDefaults];
-    
-    [savedFacts setObject:theCatFact forKey:@"tableViewDataText"];
-    
-    NSLog(@"%@", theCatFact);
-    
-}
+
+
 
 - (NSString *)objectForIndexPath:(NSIndexPath *)indexPath {
     
     return self.catFacts[indexPath.row];
     
 }
+
+
+
+
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//
+//    self.selectedFact = [[NSMutableArray alloc]init];
+//    CatFactsTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    NSString *cellText = cell.catFact.text;
+//    [self.selectedFact addObject:cellText];
+//    NSLog(@"%@",self.selectedFact);
+//
+//
+//}
+
+
+
+
+
 
 
 

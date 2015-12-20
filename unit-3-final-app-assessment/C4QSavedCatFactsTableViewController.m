@@ -7,8 +7,13 @@
 //
 
 #import "C4QSavedCatFactsTableViewController.h"
+#import "SavedCatFactsTableViewCell.h"
+
 
 @interface C4QSavedCatFactsTableViewController ()
+
+
+@property (nonatomic) NSMutableArray *facts;
 
 @end
 
@@ -16,7 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.facts = self.bunchOfCatFacts;
+    NSLog(@"%@", self.facts);
    
 }
 
@@ -24,6 +30,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 - (IBAction)doneTapped:(UIBarButtonItem *)sender {
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -39,18 +47,26 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 0;
+    return self.facts.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    SavedCatFactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"savedFacts" forIndexPath:indexPath];
     
-    // Configure the cell...
+    NSString *savedFact = [self objectForIndexPath:indexPath];
+    cell.savedCatFactLabel.text = savedFact;
     
     return cell;
 }
-*/
+
+
+
+- (NSString *)objectForIndexPath:(NSIndexPath *)indexPath {
+    
+    return self.facts[indexPath.row];
+    
+}
 
 
 

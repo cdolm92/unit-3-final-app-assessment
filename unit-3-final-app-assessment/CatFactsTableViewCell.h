@@ -11,5 +11,7 @@
 @interface CatFactsTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *catFact;
+@property (weak, nonatomic) IBOutlet UIButton *saveFact;
+@property (nonatomic) NSMutableArray *factsOnCats;
 
 @end

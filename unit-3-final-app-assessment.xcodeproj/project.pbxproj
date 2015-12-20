@@ -21,6 +21,7 @@
 		F7E7091F1C25EFCF00BF241D /* CatFactsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E7091E1C25EFCF00BF241D /* CatFactsTableViewCell.m */; };
 		F7E709221C25F71E00BF241D /* CatFactData.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E709211C25F71E00BF241D /* CatFactData.m */; };
 		F7E709251C2680B100BF241D /* C4QSavedCatFactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E709241C2680B100BF241D /* C4QSavedCatFactsTableViewController.m */; };
+		F7E709281C26959700BF241D /* SavedCatFactsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E709271C26959700BF241D /* SavedCatFactsTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		F7E709211C25F71E00BF241D /* CatFactData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatFactData.m; sourceTree = "<group>"; };
 		F7E709231C2680B100BF241D /* C4QSavedCatFactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C4QSavedCatFactsTableViewController.h; sourceTree = "<group>"; };
 		F7E709241C2680B100BF241D /* C4QSavedCatFactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = C4QSavedCatFactsTableViewController.m; sourceTree = "<group>"; };
+		F7E709261C26959700BF241D /* SavedCatFactsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedCatFactsTableViewCell.h; sourceTree = "<group>"; };
+		F7E709271C26959700BF241D /* SavedCatFactsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedCatFactsTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				8DA03F731C2499F400328B53 /* C4QCatFactsDetailViewController.m */,
 				F7E709231C2680B100BF241D /* C4QSavedCatFactsTableViewController.h */,
 				F7E709241C2680B100BF241D /* C4QSavedCatFactsTableViewController.m */,
+				F7E709261C26959700BF241D /* SavedCatFactsTableViewCell.h */,
+				F7E709271C26959700BF241D /* SavedCatFactsTableViewCell.m */,
 				8D87530C1C24774700BBD328 /* Main.storyboard */,
 				8D87530F1C24774800BBD328 /* Assets.xcassets */,
 				8D8753031C24774700BBD328 /* Supporting Files */,
@@ -267,6 +272,7 @@
 				8D610EA11C2477EB00AADDC2 /* C4QColorPickerViewController.m in Sources */,
 				F7E7091F1C25EFCF00BF241D /* CatFactsTableViewCell.m in Sources */,
 				F7E709251C2680B100BF241D /* C4QSavedCatFactsTableViewController.m in Sources */,
+				F7E709281C26959700BF241D /* SavedCatFactsTableViewCell.m in Sources */,
 				8D610EA21C2477EB00AADDC2 /* C4QRootViewController.m in Sources */,
 				F7E709221C25F71E00BF241D /* CatFactData.m in Sources */,
 			);

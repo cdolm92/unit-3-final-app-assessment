@@ -187,7 +187,7 @@
                                                 <color key="titleColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="saveCatFactTapped:" destination="Q41-6z-oZL" eventType="touchUpInside" id="hI2-tb-HGP"/>
+                                                <action selector="saveTheCatFact:" destination="iTt-7k-eCT" eventType="touchUpInside" id="krW-pa-d0H"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -206,6 +206,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="catFact" destination="LlC-uR-0P8" id="77u-w7-ifi"/>
+                                    <outlet property="saveFact" destination="8YG-Bs-Mzm" id="1PP-rp-EIH"/>
                                     <segue destination="T3i-4U-1yu" kind="show" identifier="showCatFactDetail" id="l3C-5B-bLt"/>
                                 </connections>
                             </tableViewCell>
@@ -218,7 +219,7 @@
                     <navigationItem key="navigationItem" title="Title" id="yDU-T0-oM8">
                         <barButtonItem key="rightBarButtonItem" title="Saved" id="sF6-LW-RHr">
                             <connections>
-                                <segue destination="uxE-yJ-esz" kind="show" id="yj9-0I-Sy6"/>
+                                <segue destination="uxE-yJ-esz" kind="show" identifier="showSavedFacts" id="yj9-0I-Sy6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -236,13 +237,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Nfu-ql-GyH">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="savedFacts" id="Nfu-ql-GyH" customClass="SavedCatFactsTableViewCell">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nfu-ql-GyH" id="4HZ-5l-zVw">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="saved fact" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmQ-Xv-nVO">
+                                            <rect key="frame" x="15" y="14" width="80" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="wmQ-Xv-nVO" firstAttribute="leading" secondItem="4HZ-5l-zVw" secondAttribute="leading" constant="15" id="6pR-P5-WEb"/>
+                                        <constraint firstItem="wmQ-Xv-nVO" firstAttribute="top" secondItem="4HZ-5l-zVw" secondAttribute="top" constant="14" id="I7c-Eh-gfj"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="savedCatFactLabel" destination="wmQ-Xv-nVO" id="bXp-qN-jiv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
