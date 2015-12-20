@@ -18,6 +18,7 @@
 @interface C4QCatFactsTableViewController ()
 
 @property (nonatomic) NSMutableArray *catFacts;
+@property (nonatomic) NSMutableArray *passFact;
 
 @end
 
@@ -96,6 +97,11 @@
     cell.catFact.text = [self.catFacts objectAtIndex:indexPath.row];
     
     
+    
+    
+    cell.factsOnCats = self.passFact;
+    
+    
     [cell.catFact setLineBreakMode:NSLineBreakByWordWrapping];
     [cell.catFact minimumScaleFactor];
     [cell.catFact setNumberOfLines:0];
@@ -124,9 +130,15 @@
         C4QCatFactsDetailViewController *detailViewController = segue.destinationViewController;
         detailViewController.factOnCat= theCatFact;
         
-    } else ([[segue identifier] isEqualToString:@"showSavedFacts"]); {
+    }
+    if([[segue identifier] isEqualToString:@"showSavedFacts"]) {
         
-        C4QSavedCatFactsTableViewController *SavedTVC = segue.destinationViewController;
+        
+       C4QSavedCatFactsTableViewController *SavedTVC = segue.destinationViewController;
+        SavedTVC.bunchOfCatFacts = self.passFact;
+        
+
+        
         
         
     }
