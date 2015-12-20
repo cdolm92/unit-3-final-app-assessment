@@ -115,22 +115,44 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSLog(@"preparing...");
+    if ([[segue identifier] isEqualToString:@"showCatFactDetail"]) {
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    
+    NSString *theCatFact = [self objectForIndexPath:indexPath];
+        
+         NSLog(@"%@", theCatFact);
+        
+        
+    
+    C4QCatFactsDetailViewController *detailViewController = segue.destinationViewController;
+    detailViewController.factOnCat= theCatFact;
+        
+    }
+}
+
+
+- (IBAction)saveCatFactTapped:(id)sender {
     
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     
     NSString *theCatFact = [self objectForIndexPath:indexPath];
     
-    C4QCatFactsDetailViewController *detailViewController = segue.destinationViewController;
-    detailViewController.factOnCat= theCatFact;
+    
+   
+    NSUserDefaults *savedFacts = [NSUserDefaults standardUserDefaults];
+    
+    [savedFacts setObject:theCatFact forKey:@"tableViewDataText"];
+    
+    NSLog(@"%@", theCatFact);
+    
 }
 
 - (NSString *)objectForIndexPath:(NSIndexPath *)indexPath {
     
-        return self.catFacts[indexPath.row];
-   
+    return self.catFacts[indexPath.row];
+    
 }
-
 
 
 

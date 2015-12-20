@@ -186,6 +186,9 @@
                                             <state key="normal" title="+">
                                                 <color key="titleColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="saveCatFactTapped:" destination="Q41-6z-oZL" eventType="touchUpInside" id="hI2-tb-HGP"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -203,7 +206,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="catFact" destination="LlC-uR-0P8" id="77u-w7-ifi"/>
-                                    <segue destination="T3i-4U-1yu" kind="show" id="l3C-5B-bLt"/>
+                                    <segue destination="T3i-4U-1yu" kind="show" identifier="showCatFactDetail" id="l3C-5B-bLt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -213,12 +216,53 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="yDU-T0-oM8">
-                        <barButtonItem key="rightBarButtonItem" title="Saved" id="sF6-LW-RHr"/>
+                        <barButtonItem key="rightBarButtonItem" title="Saved" id="sF6-LW-RHr">
+                            <connections>
+                                <segue destination="uxE-yJ-esz" kind="show" id="yj9-0I-Sy6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yux-EA-lvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1356" y="677"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="RSP-a9-SwO">
+            <objects>
+                <tableViewController id="uxE-yJ-esz" customClass="C4QSavedCatFactsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="AGz-yl-wqx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Nfu-ql-GyH">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nfu-ql-GyH" id="4HZ-5l-zVw">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uxE-yJ-esz" id="ePG-CB-TuP"/>
+                            <outlet property="delegate" destination="uxE-yJ-esz" id="ogy-xe-VKQ"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="ySY-Bj-g6M">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="mT4-2l-LFu">
+                            <connections>
+                                <action selector="doneTapped:" destination="uxE-yJ-esz" id="dlm-6y-Avc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="etU-4l-yEy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2109" y="693"/>
         </scene>
         <!--Cat Facts Detail View Controller-->
         <scene sceneID="VUb-ws-gZK">
@@ -260,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AAc-UQ-2ve" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2028" y="677"/>
+            <point key="canvasLocation" x="1356" y="1405"/>
         </scene>
     </scenes>
 </document>
