@@ -7,11 +7,16 @@
 //
 
 #import "CatFactsTableViewCell.h"
+#import "C4QSavedCatFactsTableViewController.h"
 
 @implementation CatFactsTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    
+   
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -19,23 +24,42 @@
 
     // Configure the view for the selected state
 }
+
 - (IBAction)saveTheCatFact:(id)sender {
     
-    self.factsOnCats = [[NSMutableArray alloc]init];
+    // get the array from NSUserDefaults
     
-    NSString *catFacts = self.catFact.text;
+  //  NSMutableArray *factsOnCats = [[[NSUserDefaults standardUserDefaults]arrayForKey:@"Saved-Fact"]mutableCopy];
     
-    [self.factsOnCats addObject:catFacts];
+    self.factsOnCats = [[[NSUserDefaults standardUserDefaults]arrayForKey:@"Saved-Fact"]mutableCopy];
+
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    // if the array is nil, create a new array
+    if (self.factsOnCats == nil) {
+        
+        self.factsOnCats = [[NSMutableArray alloc]init];
+    }
+        
+        
+    [self.factsOnCats addObject:self.catFact.text];
     
-    [defaults setObject:self.factsOnCats forKey:@"Saved-Fact"];
+    [[NSUserDefaults standardUserDefaults ]setObject:self.factsOnCats forKey:@"Saved-Fact"];
+    
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
+    // add cat fact into the array
+    // save the array back into NSUserDefaults
     
     NSLog(@"%@", self.factsOnCats);
     
-    NSLog(@"%lu", (unsigned long)self.factsOnCats.count);
+    NSLog(@"%lu", (unsigned long)self.factsOnCats);
+
     
+  
 }
+
+
 
 
 

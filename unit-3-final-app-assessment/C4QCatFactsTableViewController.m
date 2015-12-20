@@ -127,7 +127,7 @@
     } else ([[segue identifier] isEqualToString:@"showSavedFacts"]); {
         
         C4QSavedCatFactsTableViewController *SavedTVC = segue.destinationViewController;
-        SavedTVC.bunchOfCatFacts = self.selectedFact;
+        
         
     }
     
